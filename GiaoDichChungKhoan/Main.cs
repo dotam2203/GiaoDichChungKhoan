@@ -16,19 +16,17 @@ namespace GiaoDichChungKhoan
             InitializeComponent();
         }
 
-        private void lENHDATBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+       /* private void lENHDATBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();
             this.bdsLENHDAT.EndEdit();
             this.tableAdapterManager.UpdateAll(this.GDCHUNGKHOANDataSet);
 
-        }
+        }*/
 
         private void Main_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'gDCHUNGKHOANDataSet.LENHDAT' table. You can move, or remove it, as needed.
             this.tableAdapterLENHDAT.Fill(this.GDCHUNGKHOANDataSet.LENHDAT);
-
         }
     }
 }

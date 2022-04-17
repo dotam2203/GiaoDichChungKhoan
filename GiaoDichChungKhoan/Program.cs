@@ -18,34 +18,29 @@ namespace GiaoDichChungKhoan
         //Kết nối database
         public static SqlConnection conn = new SqlConnection();
         public static SqlCommand sqlCmd = new SqlCommand();
+        public static SqlDataReader dataReader;
         public static String connstr;
 
         //===================Database=============
         //Data Source=PIPI;Initial Catalog=GDCHUNGKHOAN;Persist Security Info=True;User ID=sa;Password=123
         public static String connstr_publisher = "Data Source=PIPI;Initial Catalog=GDCHUNGKHOAN;Persist Security Info=True;User ID=sa;Password=123";
 
-        public static String database = "GDCHUNGKHOAN";
-        public static String servername = "";
-        public static String username = "";
-        public static String mlogin = "";
-        public static String password = "";
-
         public static int KetNoi()
         {
-            if (Program.conn != null && Program.conn.State == System.Data.ConnectionState.Open)
+            if (Program.conn != null && Program.conn.State == ConnectionState.Open)
                 Program.conn.Close();
             try
             {
-                Program.connstr = "Data Source=" + Program.servername + ";Initial Catalog=" + Program.database + ";User ID=" + Program.mlogin + ";password=" + Program.password;
+                //Program.connstr = "Data Source=" + Program.servername + ";Initial Catalog=" + Program.database + ";User ID=" + Program.mlogin + ";password=" + Program.password;
+                Program.connstr = connstr_publisher;
                 Program.conn.ConnectionString = Program.connstr;
                 Program.conn.Open();
                 return 1;
             }
             catch (Exception e)
             {
-                MessageBox.Show("Xem lại Username & Password" + e);
+                MessageBox.Show("Lỗi kết nối cơ sở dữ liệu.\nBạn xem lại user name và password. " + e.Message, "Kết nối", MessageBoxButtons.OK);
                 return 0;
-
             }
         }
 
@@ -81,32 +76,6 @@ namespace GiaoDichChungKhoan
             da.Fill(dt);
             conn.Close();
             return dt;
-        }
-
-        public static int ExecSqlNonQuery(String strLenh)
-        {
-            SqlCommand Sqlcmd = new SqlCommand(strLenh, conn);
-            Sqlcmd.CommandType = CommandType.Text;
-            Sqlcmd.CommandTimeout = 600;//reset db mặc định tối đa 10p
-            if (conn.State == ConnectionState.Closed)
-                conn.Open();
-            try
-            {
-                Sqlcmd.ExecuteNonQuery();
-                conn.Close();
-                return 0;
-            }
-            catch (SqlException ex) 
-            {
-                //demo
-                if (ex.Message.Contains("Error converting data type varchar to int"))
-                    MessageBox.Show("Bạn fomat Cell lại cột \"Ngày tạo\" qua kiểu Number hoặc mở File Excel.");
-                else
-                    MessageBox.Show(ex.Message);
-                conn.Close();
-                //trạng thái lỗi gửi từ RaisError trong SQL Server qua
-                return ex.State;
-            }
         }
 
 

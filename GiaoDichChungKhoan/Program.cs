@@ -22,17 +22,24 @@ namespace GiaoDichChungKhoan
         public static String connstr;
 
         //===================Database=============
-        //Data Source=PIPI;Initial Catalog=GDCHUNGKHOAN;Persist Security Info=True;User ID=sa;Password=123
         public static String connstr_publisher = "Data Source=PIPI;Initial Catalog=GDCHUNGKHOAN;Persist Security Info=True;User ID=sa;Password=123";
 
+        public static String servername = "PIPI"; // luu ten server tra vè ở form dang nhap
+        public static String username = "";
+        public static String mlogin = "sa";
+        public static String password = "123";
+        public static String database = "GDCHUNGKHOAN";
+
+        
         public static int KetNoi()
         {
             if (Program.conn != null && Program.conn.State == ConnectionState.Open)
                 Program.conn.Close();
             try
             {
-                //Program.connstr = "Data Source=" + Program.servername + ";Initial Catalog=" + Program.database + ";User ID=" + Program.mlogin + ";password=" + Program.password;
-                Program.connstr = connstr_publisher;
+                Program.connstr = "Data Source=" + Program.servername + ";Initial Catalog=" +
+                      Program.database + ";User ID=" +
+                      Program.mlogin + ";password=" + Program.password;
                 Program.conn.ConnectionString = Program.connstr;
                 Program.conn.Open();
                 return 1;

@@ -25,7 +25,6 @@ namespace GiaoDichChungKhoan
         public static String connstr_publisher = "Data Source=PIPI;Initial Catalog=GDCHUNGKHOAN;Persist Security Info=True;User ID=sa;Password=123";
 
         public static String servername = "PIPI"; // luu ten server tra vè ở form dang nhap
-        public static String username = "";
         public static String mlogin = "sa";
         public static String password = "123";
         public static String database = "GDCHUNGKHOAN";

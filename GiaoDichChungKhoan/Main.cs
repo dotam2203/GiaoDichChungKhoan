@@ -17,9 +17,7 @@ namespace GiaoDichChungKhoan
         private SqlConnection connection = null;
         private SqlCommand command = null;
         private DataSet showData = null;
-
         private int change = 0;
-
         public class Data
         {
             public string Name { get; set; }
@@ -32,9 +30,7 @@ namespace GiaoDichChungKhoan
                 Connect();
             else
                 MessageBox.Show("Bạn chưa kích hoạt dịch vụ Broker", "Notification", MessageBoxButtons.OK);
-
         }
-
         private bool CanRequestNotifications()
         {
             try
@@ -75,13 +71,12 @@ namespace GiaoDichChungKhoan
             cmbLoaiGD.SelectedIndex = -1;
             cmbLoaiGD.SelectedIndex = 0;
         }
-
         //Đặt lệnh
         private void btnDatLenh_Click(object sender, EventArgs e)
         {
             if(txtMaCP.Text.Trim() == "")
             {
-                MessageBox.Show("Vui lòng nhập mã Cổ phiếu!", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Vui lòng nhập Mã Cổ Phiếu!", "Thông báo", MessageBoxButtons.OK);
                 txtMaCP.Focus();
             }
             else if (int.Parse(txtSoLuong.Text.Trim()) <= 0)
@@ -118,15 +113,12 @@ namespace GiaoDichChungKhoan
                 }
             }
            
-            cmbLoaiGD.SelectedIndex = 0;
             txtMaCP.Text = "";
             txtSoLuong.Text = "";
             txtGiaDat.Text = "";
             if (Program.dataReader == null)
                 return;
             Program.conn.Close();
-
-
         }
 
         //Reset lại dữ liệu cả trên bảng lệnh khớp và cả bảng trực tuyến
@@ -136,8 +128,7 @@ namespace GiaoDichChungKhoan
             if (result == DialogResult.Yes)
             {
                 if (Program.KetNoi() == 0) return;
-                string strLenh = "EXEC SP_RESET_TRANGTHAILENH " +
-                                 "EXEC SP_RESET_BANGGIA";
+                string strLenh = "EXEC SP_RESET_TRANGTHAILENH " + "EXEC SP_RESET_BANGGIA";
                 try
                 {
                     Program.dataReader = Program.ExecSqlDataReader(strLenh);
@@ -150,15 +141,13 @@ namespace GiaoDichChungKhoan
                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
-                if (Program.dataReader == null) return;
+                if (Program.dataReader == null) 
+                    return;
                 Program.dataReader.Read();
                 Program.conn.Close();
             }
             else return;
-            
-           
         }
-
         //Dữ liệu thay đổi cập nhật lên bảng trực tuyến
         private void dependency_OnChange(object sender, SqlNotificationEventArgs e)
         {
@@ -175,7 +164,6 @@ namespace GiaoDichChungKhoan
             change += 1;
             GetData();
         }
-
         private void Connect()
         {
             change = 0;
@@ -204,7 +192,6 @@ namespace GiaoDichChungKhoan
                 showData = new DataSet();
             GetData();
         }
-
         //Hiển thị dữ liệu lên bảng trực tuyến
         private void GetData()
         {
@@ -212,7 +199,6 @@ namespace GiaoDichChungKhoan
             command.Notification = null;
             SqlDependency dependency = new SqlDependency(command);
             dependency.OnChange += dependency_OnChange;
-
             using (SqlDataAdapter adapter = new SqlDataAdapter(command))
             {
                 adapter.Fill(showData, bangTT);
@@ -220,10 +206,8 @@ namespace GiaoDichChungKhoan
                 this.gridViewBGTT.DataMember = bangTT;
 
                 setChangeGridView();
-
             }
         }
-
         //Edit giao diện của bảng trực tuyến
         private void setChangeGridView()
         {
@@ -232,25 +216,23 @@ namespace GiaoDichChungKhoan
                 gridViewBGTT.DefaultCellStyle.BackColor = Color.Black;
                 gridViewBGTT.DefaultCellStyle.ForeColor = Color.Red;
             }
-                
-
             gridViewBGTT.Columns["Mã CP"].Width = 75;
-            gridViewBGTT.Columns["Giá mua 3"].Width = 105;
-            gridViewBGTT.Columns["Giá mua 2"].Width = 105;
-            gridViewBGTT.Columns["Giá mua 1"].Width = 105;
-            gridViewBGTT.Columns["Giá bán 3"].Width = 105;
-            gridViewBGTT.Columns["Giá bán 2"].Width = 105;
-            gridViewBGTT.Columns["Giá bán 1"].Width = 105;
+            gridViewBGTT.Columns["Giá mua 3"].Width = 103;
+            gridViewBGTT.Columns["Giá mua 2"].Width = 103;
+            gridViewBGTT.Columns["Giá mua 1"].Width = 103;
+            gridViewBGTT.Columns["Giá bán 3"].Width = 103;
+            gridViewBGTT.Columns["Giá bán 2"].Width = 103;
+            gridViewBGTT.Columns["Giá bán 1"].Width = 103;
 
-            gridViewBGTT.Columns["Khối lượng mua 3"].Width = 155;
-            gridViewBGTT.Columns["Khối lượng mua 2"].Width = 155;
-            gridViewBGTT.Columns["Khối lượng mua 1"].Width = 155;
-            gridViewBGTT.Columns["Khối lượng bán 3"].Width = 155;
-            gridViewBGTT.Columns["Khối lượng bán 2"].Width = 155;
-            gridViewBGTT.Columns["Khối lượng bán 1"].Width = 155;
+            gridViewBGTT.Columns["Khối lượng mua 3"].Width = 153;
+            gridViewBGTT.Columns["Khối lượng mua 2"].Width = 153;
+            gridViewBGTT.Columns["Khối lượng mua 1"].Width = 153;
+            gridViewBGTT.Columns["Khối lượng bán 3"].Width = 153;
+            gridViewBGTT.Columns["Khối lượng bán 2"].Width = 153;
+            gridViewBGTT.Columns["Khối lượng bán 1"].Width = 153;
 
-            gridViewBGTT.Columns["Khối lượng khớp"].Width = 145;
-            gridViewBGTT.Columns["Giá khớp"].Width = 100;
+            gridViewBGTT.Columns["Khối lượng khớp"].Width = 157;
+            gridViewBGTT.Columns["Giá khớp"].Width = 112;
         }
 
         private void lENHDATBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -262,7 +244,7 @@ namespace GiaoDichChungKhoan
         //================================Bắt lỗi nhập vào============
         private void txtMaCP_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar.ToString().IndexOfAny(@"0123456789!@#$%^&*()_+=|\{}[]?><.,';:".ToCharArray()) != -1)  // chổ nầy ko hiểu tại sao lại !=-1
+            if ((e.KeyChar.ToString().IndexOfAny(@"0123456789!@#$%^&*()_+=|\{}[]?><.,';:".ToCharArray()) != -1 || e.KeyChar < 65 || e.KeyChar > 90) && e.KeyChar != 8 )  // chổ nầy ko hiểu tại sao lại !=-1
             {
                 e.Handled = true;
                 MessageBox.Show("Mã cổ phiếu phải nhập chữ in & không có ký tự đặc biệt", "Lỗi",MessageBoxButtons.OK,MessageBoxIcon.Error);
@@ -271,7 +253,6 @@ namespace GiaoDichChungKhoan
             else
                 e.Handled = false;
         }
-
         private void txtSoLuong_KeyPress(object sender, KeyPressEventArgs e)
         {
             if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8)
@@ -283,7 +264,6 @@ namespace GiaoDichChungKhoan
             else
                 e.Handled = false;
         }
-
         private void txtGiaDat_KeyPress(object sender, KeyPressEventArgs e)
         {
             if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8)
@@ -295,6 +275,5 @@ namespace GiaoDichChungKhoan
             else
                 e.Handled = false;
         }
-        //=====================================================
     }
 }

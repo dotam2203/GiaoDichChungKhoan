@@ -47,17 +47,17 @@ namespace GiaoDichChungKhoan
             this.colSOLUONG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colGIADAT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTRANGTHAILENH = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.groupBoxDatLenh = new System.Windows.Forms.GroupBox();
+            this.txtGiaDat = new DevExpress.XtraEditors.SpinEdit();
+            this.txtSoLuong = new DevExpress.XtraEditors.SpinEdit();
+            this.txtMaCP = new System.Windows.Forms.TextBox();
+            this.cmbLoaiGD = new System.Windows.Forms.ComboBox();
+            this.btnReset = new System.Windows.Forms.Button();
+            this.btnDatLenh = new System.Windows.Forms.Button();
             this.TableAdapterLENHDAT = new GiaoDichChungKhoan.GDCHUNGKHOANDataSetTableAdapters.LENHDATTableAdapter();
             this.tableAdapterManagerLD = new GiaoDichChungKhoan.GDCHUNGKHOANDataSetTableAdapters.TableAdapterManager();
             this.groupBoxBGTT = new System.Windows.Forms.GroupBox();
             this.gridViewBGTT = new System.Windows.Forms.DataGridView();
-            this.btnDatLenh = new System.Windows.Forms.Button();
-            this.btnReset = new System.Windows.Forms.Button();
-            this.cmbLoaiGD = new System.Windows.Forms.ComboBox();
-            this.txtMaCP = new System.Windows.Forms.TextBox();
-            this.txtSoLuong = new DevExpress.XtraEditors.SpinEdit();
-            this.txtGiaDat = new DevExpress.XtraEditors.SpinEdit();
-            this.groupBoxDatLenh = new System.Windows.Forms.GroupBox();
             mACPLabel = new System.Windows.Forms.Label();
             lOAIGDLabel = new System.Windows.Forms.Label();
             sOLUONGLabel = new System.Windows.Forms.Label();
@@ -67,12 +67,48 @@ namespace GiaoDichChungKhoan
             ((System.ComponentModel.ISupportInitialize)(this.gridControlLenhDat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsLENHDAT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewLenhDat)).BeginInit();
+            this.groupBoxDatLenh.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGiaDat.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSoLuong.Properties)).BeginInit();
             this.groupBoxBGTT.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewBGTT)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSoLuong.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtGiaDat.Properties)).BeginInit();
-            this.groupBoxDatLenh.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // mACPLabel
+            // 
+            mACPLabel.AutoSize = true;
+            mACPLabel.Location = new System.Drawing.Point(40, 153);
+            mACPLabel.Name = "mACPLabel";
+            mACPLabel.Size = new System.Drawing.Size(102, 17);
+            mACPLabel.TabIndex = 0;
+            mACPLabel.Text = "Mã Cổ Phiếu: ";
+            // 
+            // lOAIGDLabel
+            // 
+            lOAIGDLabel.AutoSize = true;
+            lOAIGDLabel.Location = new System.Drawing.Point(34, 91);
+            lOAIGDLabel.Name = "lOAIGDLabel";
+            lOAIGDLabel.Size = new System.Drawing.Size(108, 17);
+            lOAIGDLabel.TabIndex = 2;
+            lOAIGDLabel.Text = "Loại Giao Dịch:";
+            // 
+            // sOLUONGLabel
+            // 
+            sOLUONGLabel.AutoSize = true;
+            sOLUONGLabel.Location = new System.Drawing.Point(29, 212);
+            sOLUONGLabel.Name = "sOLUONGLabel";
+            sOLUONGLabel.Size = new System.Drawing.Size(113, 17);
+            sOLUONGLabel.TabIndex = 8;
+            sOLUONGLabel.Text = "Số Lượng Đặt: ";
+            // 
+            // gIADATLabel
+            // 
+            gIADATLabel.AutoSize = true;
+            gIADATLabel.Location = new System.Drawing.Point(75, 273);
+            gIADATLabel.Name = "gIADATLabel";
+            gIADATLabel.Size = new System.Drawing.Size(67, 17);
+            gIADATLabel.TabIndex = 10;
+            gIADATLabel.Text = "Giá Đặt: ";
             // 
             // GDCHUNGKHOANDataSet
             // 
@@ -86,7 +122,7 @@ namespace GiaoDichChungKhoan
             this.groupBox1DSLenhDat.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1DSLenhDat.Location = new System.Drawing.Point(0, 0);
             this.groupBox1DSLenhDat.Name = "groupBox1DSLenhDat";
-            this.groupBox1DSLenhDat.Size = new System.Drawing.Size(1743, 603);
+            this.groupBox1DSLenhDat.Size = new System.Drawing.Size(1743, 627);
             this.groupBox1DSLenhDat.TabIndex = 2;
             this.groupBox1DSLenhDat.TabStop = false;
             this.groupBox1DSLenhDat.Text = "Danh Sách Lệnh Đặt";
@@ -98,7 +134,7 @@ namespace GiaoDichChungKhoan
             this.gridControlLenhDat.Location = new System.Drawing.Point(3, 19);
             this.gridControlLenhDat.MainView = this.gridViewLenhDat;
             this.gridControlLenhDat.Name = "gridControlLenhDat";
-            this.gridControlLenhDat.Size = new System.Drawing.Size(1190, 581);
+            this.gridControlLenhDat.Size = new System.Drawing.Size(1190, 605);
             this.gridControlLenhDat.TabIndex = 3;
             this.gridControlLenhDat.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewLenhDat});
@@ -194,6 +230,99 @@ namespace GiaoDichChungKhoan
             this.colTRANGTHAILENH.VisibleIndex = 7;
             this.colTRANGTHAILENH.Width = 94;
             // 
+            // groupBoxDatLenh
+            // 
+            this.groupBoxDatLenh.Controls.Add(this.txtGiaDat);
+            this.groupBoxDatLenh.Controls.Add(this.txtSoLuong);
+            this.groupBoxDatLenh.Controls.Add(this.txtMaCP);
+            this.groupBoxDatLenh.Controls.Add(this.cmbLoaiGD);
+            this.groupBoxDatLenh.Controls.Add(this.btnReset);
+            this.groupBoxDatLenh.Controls.Add(this.btnDatLenh);
+            this.groupBoxDatLenh.Controls.Add(gIADATLabel);
+            this.groupBoxDatLenh.Controls.Add(sOLUONGLabel);
+            this.groupBoxDatLenh.Controls.Add(lOAIGDLabel);
+            this.groupBoxDatLenh.Controls.Add(mACPLabel);
+            this.groupBoxDatLenh.Dock = System.Windows.Forms.DockStyle.Right;
+            this.groupBoxDatLenh.Location = new System.Drawing.Point(1193, 19);
+            this.groupBoxDatLenh.Name = "groupBoxDatLenh";
+            this.groupBoxDatLenh.Size = new System.Drawing.Size(547, 605);
+            this.groupBoxDatLenh.TabIndex = 3;
+            this.groupBoxDatLenh.TabStop = false;
+            this.groupBoxDatLenh.Text = "Giao Dịch Chứng Khoán";
+            // 
+            // txtGiaDat
+            // 
+            this.txtGiaDat.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.txtGiaDat.Location = new System.Drawing.Point(172, 266);
+            this.txtGiaDat.Name = "txtGiaDat";
+            this.txtGiaDat.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtGiaDat.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtGiaDat.Size = new System.Drawing.Size(125, 24);
+            this.txtGiaDat.TabIndex = 27;
+            // 
+            // txtSoLuong
+            // 
+            this.txtSoLuong.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.txtSoLuong.Location = new System.Drawing.Point(172, 208);
+            this.txtSoLuong.Name = "txtSoLuong";
+            this.txtSoLuong.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtSoLuong.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtSoLuong.Size = new System.Drawing.Size(125, 24);
+            this.txtSoLuong.TabIndex = 26;
+            // 
+            // txtMaCP
+            // 
+            this.txtMaCP.Location = new System.Drawing.Point(172, 150);
+            this.txtMaCP.Name = "txtMaCP";
+            this.txtMaCP.Size = new System.Drawing.Size(125, 23);
+            this.txtMaCP.TabIndex = 22;
+            this.txtMaCP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMaCP_KeyPress);
+            // 
+            // cmbLoaiGD
+            // 
+            this.cmbLoaiGD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbLoaiGD.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cmbLoaiGD.FormattingEnabled = true;
+            this.cmbLoaiGD.Location = new System.Drawing.Point(172, 88);
+            this.cmbLoaiGD.Name = "cmbLoaiGD";
+            this.cmbLoaiGD.Size = new System.Drawing.Size(125, 24);
+            this.cmbLoaiGD.TabIndex = 14;
+            // 
+            // btnReset
+            // 
+            this.btnReset.BackColor = System.Drawing.Color.Firebrick;
+            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnReset.ForeColor = System.Drawing.Color.White;
+            this.btnReset.Location = new System.Drawing.Point(398, 226);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(100, 49);
+            this.btnReset.TabIndex = 13;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = false;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // btnDatLenh
+            // 
+            this.btnDatLenh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnDatLenh.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDatLenh.Location = new System.Drawing.Point(398, 121);
+            this.btnDatLenh.Name = "btnDatLenh";
+            this.btnDatLenh.Size = new System.Drawing.Size(100, 49);
+            this.btnDatLenh.TabIndex = 12;
+            this.btnDatLenh.Text = "Đặt Lệnh";
+            this.btnDatLenh.UseVisualStyleBackColor = false;
+            this.btnDatLenh.Click += new System.EventHandler(this.btnDatLenh_Click);
+            // 
             // TableAdapterLENHDAT
             // 
             this.TableAdapterLENHDAT.ClearBeforeFill = true;
@@ -212,9 +341,9 @@ namespace GiaoDichChungKhoan
             this.groupBoxBGTT.Controls.Add(this.gridViewBGTT);
             this.groupBoxBGTT.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBoxBGTT.ForeColor = System.Drawing.Color.White;
-            this.groupBoxBGTT.Location = new System.Drawing.Point(0, 603);
+            this.groupBoxBGTT.Location = new System.Drawing.Point(0, 627);
             this.groupBoxBGTT.Name = "groupBoxBGTT";
-            this.groupBoxBGTT.Size = new System.Drawing.Size(1743, 459);
+            this.groupBoxBGTT.Size = new System.Drawing.Size(1743, 435);
             this.groupBoxBGTT.TabIndex = 1;
             this.groupBoxBGTT.TabStop = false;
             this.groupBoxBGTT.Text = "Bảng Giá Trực Tuyến";
@@ -229,137 +358,8 @@ namespace GiaoDichChungKhoan
             this.gridViewBGTT.Name = "gridViewBGTT";
             this.gridViewBGTT.RowHeadersWidth = 51;
             this.gridViewBGTT.RowTemplate.Height = 24;
-            this.gridViewBGTT.Size = new System.Drawing.Size(1737, 437);
+            this.gridViewBGTT.Size = new System.Drawing.Size(1737, 413);
             this.gridViewBGTT.TabIndex = 0;
-            // 
-            // mACPLabel
-            // 
-            mACPLabel.AutoSize = true;
-            mACPLabel.Location = new System.Drawing.Point(40, 153);
-            mACPLabel.Name = "mACPLabel";
-            mACPLabel.Size = new System.Drawing.Size(102, 17);
-            mACPLabel.TabIndex = 0;
-            mACPLabel.Text = "Mã Cổ Phiếu: ";
-            // 
-            // lOAIGDLabel
-            // 
-            lOAIGDLabel.AutoSize = true;
-            lOAIGDLabel.Location = new System.Drawing.Point(34, 91);
-            lOAIGDLabel.Name = "lOAIGDLabel";
-            lOAIGDLabel.Size = new System.Drawing.Size(108, 17);
-            lOAIGDLabel.TabIndex = 2;
-            lOAIGDLabel.Text = "Loại Giao Dịch:";
-            // 
-            // sOLUONGLabel
-            // 
-            sOLUONGLabel.AutoSize = true;
-            sOLUONGLabel.Location = new System.Drawing.Point(29, 212);
-            sOLUONGLabel.Name = "sOLUONGLabel";
-            sOLUONGLabel.Size = new System.Drawing.Size(113, 17);
-            sOLUONGLabel.TabIndex = 8;
-            sOLUONGLabel.Text = "Số Lượng Đặt: ";
-            // 
-            // gIADATLabel
-            // 
-            gIADATLabel.AutoSize = true;
-            gIADATLabel.Location = new System.Drawing.Point(75, 273);
-            gIADATLabel.Name = "gIADATLabel";
-            gIADATLabel.Size = new System.Drawing.Size(67, 17);
-            gIADATLabel.TabIndex = 10;
-            gIADATLabel.Text = "Giá Đặt: ";
-            // 
-            // btnDatLenh
-            // 
-            this.btnDatLenh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnDatLenh.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDatLenh.Location = new System.Drawing.Point(398, 121);
-            this.btnDatLenh.Name = "btnDatLenh";
-            this.btnDatLenh.Size = new System.Drawing.Size(100, 49);
-            this.btnDatLenh.TabIndex = 12;
-            this.btnDatLenh.Text = "Đặt Lệnh";
-            this.btnDatLenh.UseVisualStyleBackColor = false;
-            this.btnDatLenh.Click += new System.EventHandler(this.btnDatLenh_Click);
-            // 
-            // btnReset
-            // 
-            this.btnReset.BackColor = System.Drawing.Color.Firebrick;
-            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnReset.ForeColor = System.Drawing.Color.White;
-            this.btnReset.Location = new System.Drawing.Point(398, 226);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(100, 49);
-            this.btnReset.TabIndex = 13;
-            this.btnReset.Text = "Reset";
-            this.btnReset.UseVisualStyleBackColor = false;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
-            // 
-            // cmbLoaiGD
-            // 
-            this.cmbLoaiGD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbLoaiGD.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cmbLoaiGD.FormattingEnabled = true;
-            this.cmbLoaiGD.Location = new System.Drawing.Point(172, 88);
-            this.cmbLoaiGD.Name = "cmbLoaiGD";
-            this.cmbLoaiGD.Size = new System.Drawing.Size(125, 24);
-            this.cmbLoaiGD.TabIndex = 14;
-            // 
-            // txtMaCP
-            // 
-            this.txtMaCP.Location = new System.Drawing.Point(172, 150);
-            this.txtMaCP.Name = "txtMaCP";
-            this.txtMaCP.Size = new System.Drawing.Size(125, 23);
-            this.txtMaCP.TabIndex = 22;
-            this.txtMaCP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMaCP_KeyPress);
-            // 
-            // txtSoLuong
-            // 
-            this.txtSoLuong.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.txtSoLuong.Location = new System.Drawing.Point(172, 208);
-            this.txtSoLuong.Name = "txtSoLuong";
-            this.txtSoLuong.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtSoLuong.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtSoLuong.Size = new System.Drawing.Size(125, 24);
-            this.txtSoLuong.TabIndex = 26;
-            // 
-            // txtGiaDat
-            // 
-            this.txtGiaDat.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.txtGiaDat.Location = new System.Drawing.Point(172, 266);
-            this.txtGiaDat.Name = "txtGiaDat";
-            this.txtGiaDat.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtGiaDat.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtGiaDat.Size = new System.Drawing.Size(125, 24);
-            this.txtGiaDat.TabIndex = 27;
-            // 
-            // groupBoxDatLenh
-            // 
-            this.groupBoxDatLenh.Controls.Add(this.txtGiaDat);
-            this.groupBoxDatLenh.Controls.Add(this.txtSoLuong);
-            this.groupBoxDatLenh.Controls.Add(this.txtMaCP);
-            this.groupBoxDatLenh.Controls.Add(this.cmbLoaiGD);
-            this.groupBoxDatLenh.Controls.Add(this.btnReset);
-            this.groupBoxDatLenh.Controls.Add(this.btnDatLenh);
-            this.groupBoxDatLenh.Controls.Add(gIADATLabel);
-            this.groupBoxDatLenh.Controls.Add(sOLUONGLabel);
-            this.groupBoxDatLenh.Controls.Add(lOAIGDLabel);
-            this.groupBoxDatLenh.Controls.Add(mACPLabel);
-            this.groupBoxDatLenh.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBoxDatLenh.Location = new System.Drawing.Point(1193, 19);
-            this.groupBoxDatLenh.Name = "groupBoxDatLenh";
-            this.groupBoxDatLenh.Size = new System.Drawing.Size(547, 581);
-            this.groupBoxDatLenh.TabIndex = 3;
-            this.groupBoxDatLenh.TabStop = false;
-            this.groupBoxDatLenh.Text = "Giao Dịch Chứng Khoán";
             // 
             // Main
             // 
@@ -381,12 +381,12 @@ namespace GiaoDichChungKhoan
             ((System.ComponentModel.ISupportInitialize)(this.gridControlLenhDat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsLENHDAT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewLenhDat)).EndInit();
-            this.groupBoxBGTT.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewBGTT)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSoLuong.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtGiaDat.Properties)).EndInit();
             this.groupBoxDatLenh.ResumeLayout(false);
             this.groupBoxDatLenh.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGiaDat.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSoLuong.Properties)).EndInit();
+            this.groupBoxBGTT.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewBGTT)).EndInit();
             this.ResumeLayout(false);
 
         }
